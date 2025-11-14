@@ -257,3 +257,62 @@ footer {
   footer { font-size: 12px; }
   .whatsapp-fixo { right: 12px; bottom: 12px; padding: 10px 14px; font-size: 14px; }
 }
+/* Wrapper para permitir scroll horizontal em telas pequenas */
+#conteudo .price-table-wrapper {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+/* Tabela de preços */
+#conteudo .price-table {
+  min-width: 520px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 14px 0;
+}
+
+/* Células */
+#conteudo .price-table th,
+#conteudo .price-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 16px;
+}
+
+/* Cabeçalho */
+#conteudo .price-table th {
+  text-align: left;
+  background: rgba(0,0,0,0.03);
+  font-weight: 700;
+  color: #333;
+}
+
+/* Alinhar preços à direita e destacar */
+#conteudo .price-table td:nth-child(2),
+#conteudo .price-table td:nth-child(3) {
+  text-align: right;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Pequeno destaque para tabelas dentro da seção .sucos */
+#conteudo .sucos .price-table th {
+  background: rgba(50,205,50,0.06);
+  color: #006400;
+}
+
+/* Espaçamento entre subtítulos e tabelas */
+#conteudo h3 {
+  margin: 12px 0 6px 0;
+  font-size: 20px;
+  color: #2e7d32;
+}
+
+/* Mantém boa leitura em telas muito pequenas */
+@media (max-width: 420px) {
+  #conteudo .price-table th,
+  #conteudo .price-table td {
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+}
