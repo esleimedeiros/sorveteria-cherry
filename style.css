@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@400;700&display=swap');
+
+:root{
+  --rosa-pastel: #ffb6c1;
+  --azul-pastel: #add8e6;
+  --lilas-claro: #e6e6fa;
+  --verde-claro: #e0ffe0;
+  --fundo-conteudo: #fff0f5;
+  --whatsapp: #25D366;
+}
+
+/* Reset e base */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Baloo 2', cursive, sans-serif;
+  text-align: center;
+  background-color: #fefefe;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero com foto de fundo */
+.hero {
+  background: url('sorveteria.jpg') no-repeat center center;
+  background-size: cover;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Logo com variação sutil de sombra e animação */
+.logo {
+  max-width: 400px;
+  width: 90%;
+  border: 4px solid var(--azul-pastel);
+  border-radius: 20px;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);
+  animation: pulse 3s infinite;
+}
+
+/* Animação pulse sutil */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(255,255,255,0.45);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(173,216,230,0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(255,255,255,0.45);
+  }
+}
+
+/* Menu de botões */
+.menu {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0 12px;
+}
+
+button {
+  margin: 0;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--rosa-pastel), var(--azul-pastel));
+  color: #333;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Brilho correndo nos botões */
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255,255,255,0.28);
+  transform: skewX(-20deg);
+}
+
+button:hover::after {
+  left: 120%;
+  transition: left 0.7s ease;
+}
+
+/* Área de conteúdo */
+#conteudo {
+  margin: 20px;
+  font-size: 20px;
+  background-color: var(--fundo-conteudo);
+  border-radius: 15px;
+  padding: 20px;
+  display: inline-block;
+  min-width: 280px;
+  max-width: 900px;
+  width: calc(100% - 40px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  font-family: 'Pacifico', cursive;
+  text-align: left;
+}
+
+/* Títulos e listas dentro do conteúdo */
+#conteudo h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: #e91e63;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+#conteudo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#conteudo li {
+  margin: 8px 0;
+  font-size: 22px;
+  color: #333;
+  font-weight: 700;
+}
+
+/* Estilos diferenciados para cada categoria com animações temáticas */
+
+/* Sorvetes – efeito de derretimento suave */
+@keyframes melt {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+.sorvetes {
+  background-color: #ffe4e1;
+  border: 3px solid #ff69b4;
+  color: #c2185b;
+  animation: melt 3s infinite ease-in-out;
+}
+
+/* Açaí – brilho roxo pulsante */
+@keyframes acaiGlow {
+  0% { box-shadow: 0 0 10px #9370db; }
+  50% { box-shadow: 0 0 25px #4b0082; }
+  100% { box-shadow: 0 0 10px #9370db; }
+}
+.acai {
+  background-color: var(--lilas-claro);
+  border: 3px solid #9370db;
+  color: #4b0082;
+  animation: acaiGlow 2.5s infinite alternate;
+}
+
+/* Sucos – efeito refrescante de ondas */
+@keyframes wave {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+.sucos {
+  background: linear-gradient(135deg, var(--verde-claro), #b2f7b2);
+  border: 3px solid #32cd32;
+  color: #006400;
+  background-size: 200% 200%;
+  animation: wave 4s linear infinite;
+}
+
+/* Botão WhatsApp inline (caso use) */
+button.whatsapp {
+  background: var(--whatsapp);
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 30px;
+  padding: 12px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botão WhatsApp fixo no canto da tela */
+.whatsapp-fixo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--whatsapp);
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 30px;
+  padding: 12px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 999;
+}
+
+.whatsapp-fixo i {
+  font-size: 20px;
+}
+
+.whatsapp-fixo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 28px rgba(37,211,102,0.22);
+}
+
+/* Rodapé */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: var(--azul-pastel);
+  color: #333;
+  font-weight: 700;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero { height: 50vh; }
+  .logo { max-width: 250px; }
+  button { width: 80%; font-size: 16px; padding: 12px 20px; }
+  #conteudo { width: 90%; font-size: 18px; padding: 15px; }
+  footer { font-size: 14px; padding: 15px; }
+  .whatsapp-fixo { right: 16px; bottom: 16px; padding: 10px 16px; font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .hero { height: 36vh; }
+  .logo { max-width: 180px; }
+  button { width: 90%; font-size: 14px; padding: 10px 15px; }
+  #conteudo { font-size: 16px; padding: 10px; }
+  footer { font-size: 12px; }
+  .whatsapp-fixo { right: 12px; bottom: 12px; padding: 10px 14px; font-size: 14px; }
+}

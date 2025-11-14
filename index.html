@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorveteria Delícia</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Logo grande e chamativa -->
+  <header class="hero">
+    <img src="logo.png" alt="Logo Sorveteria" class="logo">
+  </header>
+
+  <!-- Botões principais -->
+  <main class="menu">
+    <button onclick="mostrar('sorvetes')">🍦 Sorvetes</button>
+    <button onclick="mostrar('acai')">🥣 Açaí</button>
+    <button onclick="mostrar('sucos')">🥤 Sucos</button>
+  </main>
+
+  <!-- Área de exibição dos sabores/valores -->
+  <section id="conteudo"></section>
+
+  <!-- Endereço com link escondido -->
+  <footer>
+    <p>📍 Endereço: R. Mario de Andrade, 651 - Centro, Rubinéia - SP, 15790-000
+      <a href="https://maps.app.goo.gl/o6m1DjTk3yuPd1js8?g_st=ac" target="_blank">clique aqui</a>
+    </p>
+  </footer>
+
+  <!-- Botão fixo/flutuante do WhatsApp -->
+  <button class="whatsapp-fixo" onclick="contatoWhatsapp()">
+    <i class="fab fa-whatsapp"></i> 17 99160-2759
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
