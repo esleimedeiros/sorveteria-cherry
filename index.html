@@ -1,40 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sorveteria Delícia</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Logo grande e chamativa -->
+  <!-- Hero com foto de fundo e logo -->
   <header class="hero">
-    <img src="logo.png" alt="Logo Sorveteria" class="logo">
+    <img src="logo.png" alt="Logo Sorveteria Delícia" class="logo">
   </header>
 
-  <!-- Botões principais -->
+  <!-- Menu principal -->
   <main class="menu">
     <button onclick="mostrar('sorvetes')">🍦 Sorvetes</button>
     <button onclick="mostrar('acai')">🥣 Açaí</button>
     <button onclick="mostrar('sucos')">🥤 Sucos</button>
   </main>
 
-  <!-- Área de exibição dos sabores/valores -->
-  <section id="conteudo"></section>
+  <!-- Conteúdo dinâmico -->
+  <section id="conteudo" aria-live="polite"></section>
 
-  <!-- Endereço com link escondido -->
+  <!-- Rodapé com endereço -->
   <footer>
     <p>📍 Endereço: R. Mario de Andrade, 651 - Centro, Rubinéia - SP, 15790-000
-      <a href="https://maps.app.goo.gl/o6m1DjTk3yuPd1js8?g_st=ac" target="_blank">clique aqui</a>
+      <a href="https://maps.app.goo.gl/o6m1DjTk3yuPd1js8?g_st=ac" target="_blank" rel="noopener">clique aqui</a>
     </p>
   </footer>
 
-  <!-- Botão fixo/flutuante do WhatsApp -->
-  <button class="whatsapp-fixo" onclick="contatoWhatsapp()">
+  <!-- Botão fixo que abre o modal de pedido -->
+  <button class="whatsapp-fixo" id="openPedidoBtn" aria-label="Fazer pedido pelo WhatsApp">
     <i class="fab fa-whatsapp"></i> 17 99160-2759
   </button>
 
-  <script src="script.js"></script>
+  <!-- Modal de pedido -->
+  <div id="pedidoModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="pedidoTitle">
+      <button class="modal-close" id="closePedidoBtn" aria-label="Fechar">&times;</button>
+      <h3 id="pedidoTitle">Fazer pedido via WhatsApp</h3>
+
+      <form id="pedidoFormModal">
+        <label for="saborModal">Sabor</label>
+        <select id="saborModal" name="sabor" required>
+          <option value="Açaí">Açaí</option>
+          <option value="Morango">Morango</option>
+          <option value="Laranja com Acerola">Laranja com Acerola</option>
+          <option value="Abacaxi com Hortelã">Abacaxi com Hortelã</option>
+          <option value="Mamão com Laranja">Mamão com Laranja</option>
+          <option value="Abacaxi com Limão">Abacaxi com Limão</option>
+          <option value="Abacaxi, Maracujá e Laranja">Abacaxi, Maracujá e Laranja</option>
+          <option value="Açaí, Morango, Banana e Laranja">Açaí, Morango, Banana e Laranja</option>
+          <option value="Maracujá, Morango e Chantilly">Maracujá, Morango e Chantilly</option>
+          <!-- adicione mais opções conforme necessário -->
+        </select>
+
+        <label for="quantidadeModal">Quantidade</label>
+        <input type="number" id="quantidadeModal" name="quantidade" min="1" value="1" required>
+
+        <label for="nomeModal">Nome</label>
+        <input type="text" id="nomeModal" name="nome" placeholder="Seu nome" required>
+
+        <label for="enderecoModal">Endereço (opcional)</label>
+        <input type="text" id="enderecoModal" name="endereco" placeholder="Rua, nº, bairro">
+
+        <button type="submit" id="enviarPedidoModal">Enviar para WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js" defer></script>
 </body>
 </html>
